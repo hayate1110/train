@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+void parse_connection(char *buf);
+
 /* データセットを意識して読み込む */
 
 int main(void)
@@ -24,19 +26,19 @@ int main(void)
             if (fgets(buf, sizeof(buf), stdin) == NULL) {
                 break; /* データセットの異常終了 */
             }
-
+            parse_connection(buf);
             /* printf("%s", buf); */ /* 列車データの書き出し */
         }
     }
 }
 
 /* 列車データの解析 */
-int parse_connection(char *buf)
+void parse_connection(char *buf)
 {
     char from[18], to[18];
     int dpt[2], arv[2], fare;
     
-    sscanf(buf, "%s %d:%d &s %d:%d %d", 
+    sscanf(buf, "%s %d:%d %s %d:%d %d", 
         from, &(dpt[0]), &(dpt[1]), to, &(arv[0]), (&arv[1]), &fare);
 
     printf("%s %d %s %d %d\n", 
