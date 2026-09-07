@@ -232,9 +232,9 @@ void solve(void)
     make_table(to_tokyo, city_id("Tokyo"), rtrains);
 
     min_cost = INFINITE;
-    printf("ncity = %d, nconn = %d\n", ncity, nconn);
     for (c=0; c < ncity; c++) {
         cost = calc_cost(c);
         printf("%s: %d\n", &(city_name[c][0]), cost);
     }
+    printf("\n");
 }
