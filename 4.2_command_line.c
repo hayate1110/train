@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     char *st2 = NULL;
     int dpt_h, dpt_m;
     int arv_h, arv_m;
-    int meet;
+    int stay_minimum;
 
     for (int i = 1; i < argc; i++) {
 
@@ -24,11 +24,11 @@ int main(int argc, char *argv[])
         } else if (strcmp(argv[i], "-arv") == 0) {
             sscanf(argv[++i], "%d:%d", &arv_h, &arv_m);
 
-        } else if (strcmp(argv[i], "-m") == 0) {
-            meet = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "-stay_minimum") == 0) {
+            stay_minimum = atoi(argv[++i]);
 
         } else {
-            fprintf(stderr, "usage: %s -st1 <string> -st2 <string> -dpt <int>:<int> -arv <int>:<int> -m <int>\n", argv[0]);
+            fprintf(stderr, "usage: %s -st1 <string> -st2 <string> -dpt <int>:<int> -arv <int>:<int> -stay_minimum <int>\n", argv[0]);
             return 1;
         }
     }
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     printf("st2 = %s\n", st2);
     printf("dpt = %02d:%02d\n", dpt_h, dpt_m);
     printf("arv = %02d:%02d\n", arv_h, arv_m);
-    printf("m = %d\n", meet);
+    printf("stay_minimum = %d\n", stay_minimum);
 
     return 0;
 }
